@@ -44,5 +44,5 @@ output_file contains the updated positions, velocities, and masses of all bodies
 * Positions and velocities are updated in parallel.
 * Reconstructs the quadtree each iteration to account for movement of bodies.
 * Execution time is printed at the end of the simulation.
-
+---
   *This was developed as an assignment for the Parallel Programming Course*
