@@ -1,5 +1,3 @@
-#Aikaterini Syrigonaki, csd5109
-
 CPPFILES = barnes_hut.cpp
 
 
