@@ -13,12 +13,12 @@ class BHNode;
 
 using namespace std;
 
-typedef struct point {
+struct Point {
    double x,y;  
-} Point;
+};
 
 
-typedef struct quadrant {
+struct Quadrant {
     Point min;
     Point max;
     bool contains(BHNode * n);
@@ -26,7 +26,7 @@ typedef struct quadrant {
         return abs(this->max.x - this->min.x);
     }
 
-} Quadrant;
+};
 
 class BHNode {
     public:
@@ -111,7 +111,7 @@ class BHNode {
         }
 };
 
-bool quadrant::contains(BHNode * n) {
+bool Quadrant::contains(BHNode * n) {
     return (n->position.x <= this->max.x && n->position.x >= this->min.x && n->position.y >= this->min.y && n->position.y <= this->max.y);
 }
 
