@@ -277,13 +277,10 @@ void update_positions(BHTree * bhtree) {
         [&bhtree](const tbb::blocked_range<size_t>& range) {
             for (size_t i = range.begin(); i != range.end(); i++) {
                 auto& b = bhtree->bodies[i];
-                Point * force = new Point{0, 0};
-                calculate_force(b, bhtree->root, force);
-                b->acceleration.x = force->x / b->mass;
-                b->acceleration.y = force->y / b->mass;
-                force->x = 0;
-                force->y = 0;
-                delete force; 
+                Point force{0, 0};
+                calculate_force(b, bhtree->root, &force);
+                b->acceleration.x = force.x / b->mass;
+                b->acceleration.y = force.y / b->mass;
             }
         }
     );
